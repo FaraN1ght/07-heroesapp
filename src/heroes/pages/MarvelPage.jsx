@@ -1,5 +1,12 @@
+import { HeroList } from "../../heroes"
+
 export const MarvelPage = () => {
   return (
-    <h1>MarvelPagueee</h1>
+    <>
+      <h1>Marvel Comics</h1>
+      <hr />
+
+      <HeroList publisher='Marvel Comics' />
+    </>
   )
 }

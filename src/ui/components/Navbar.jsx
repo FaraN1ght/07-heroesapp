@@ -1,6 +1,19 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+
+    //CUSTOM HOOK PARA ACTIVAR LAS FUNC DE NAVEGACION
+    const navigate = useNavigate(); 
+    
+    //FUNCION PARA LOGOUT, AQUI ESTAMOS MANEJANDO EL LOGOUT Y DICIENDOLE QUE VAYA AL LOGIN
+    const handleLogout = () => { 
+        console.log("logout");
+        navigate('/login', { //NAVEGA AL SITIO
+            replace: true //EVITA QUE REGRESES A LA PAGINA ANTERIOR
+        }); 
+    }
+    
+    //AQUI PODEMOS MANIPULAR EL NAVBAR DESDE SUS OPCIONES A SUS ESTILOS
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             
@@ -8,13 +21,13 @@ export const Navbar = () => {
                 className="navbar-brand" 
                 to="/"
             >
-                Asociaciones
+                HEROES
             </Link>
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
-
-                    <NavLink 
+                    
+                    <NavLink  
                         className={({isActive}) => `nav-item nav-link ${ isActive ? 'active':''}`} 
                         to="/marvel"
                     >
@@ -27,6 +40,13 @@ export const Navbar = () => {
                     >
                         DC
                     </NavLink>
+
+                    <NavLink 
+                        className={({isActive}) => `nav-item nav-link ${ isActive ? 'active':''}`} 
+                        to="/search"
+                    >
+                        Search
+                    </NavLink>
                 </div>
             </div>
 
@@ -38,6 +58,7 @@ export const Navbar = () => {
 
                     <button
                         className="nav-item nav-link btn"
+                        onClick={handleLogout}
                     >
                         Logout
                     </button>
