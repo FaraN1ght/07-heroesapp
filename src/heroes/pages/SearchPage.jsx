@@ -5,7 +5,6 @@ import { useForm } from '../../hooks/useForm';
 import { HeroCard } from '../components';
 import { getHeroByName } from '../helpers';
 
-
 /* '  / ' : es para enlaces o direcciones url.
 ' ? ' : es para query parameters o parametros 
 de un query/busqueda. */
